@@ -7,12 +7,7 @@ import axios from 'axios';
 function App() {
   const [keyword, setKeyword] = useState('');
   const [news, setNews] = useState([]);
-  const [filteredNews, setFilteredNews] = useState([]);
   const [searchClicked, setSearchClicked] = useState(false);
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
-  const [date, setDate] = useState('');
-  const [searchResults, setSearchResults] = useState([]);
 
   const handleSearch = async () => {
     try {
@@ -46,9 +41,6 @@ function App() {
       
       await handleSearch();
 
-      // Faça sua busca aqui...
-      // Supondo que você tenha os dados da notícia disponíveis em title, content e date
-   
       console.log('Notícias adicionadas com sucesso!');
     } catch (error) {
       console.error('Erro ao adicionar notícias:', error.message);

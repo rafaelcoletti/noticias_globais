@@ -1,5 +1,6 @@
 // server.js
 
+
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -41,11 +42,11 @@ app.post('/search', async (req, res) => {
     // Realiza a busca externa utilizando a API de notícias
     const apiKey = 'e2b489b9e52d4baf8d0b090a9c1d9319';
     const response = await axios.get(
-      `https://newsapi.org/v2/top-headlines?apiKey=${apiKey}&q=${keyword}&from=${fromDate}&to=${toDate}`
+      `https://newsapi.org/v2/everything?apiKey=${apiKey}&q=${keyword}&pageSize=20`
     );
     
     // Limpa o banco de dados antes de adicionar novas notícias
-    await News.deleteMany({});
+    // await News.deleteMany({});
 
     // Salva as notícias no MongoDB
     const newsArray = response.data.articles;
